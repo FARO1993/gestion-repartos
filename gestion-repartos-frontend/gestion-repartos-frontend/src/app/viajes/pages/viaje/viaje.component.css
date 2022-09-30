@@ -1,0 +1,23 @@
+h1 {
+    color: #424242;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+mat-divider {
+    border-top-color:#424242;
+    width: 80%;
+    margin: 10px;
+}
+
+mat-icon{
+    margin: 5px;
+}
+
+th.mat-header-cell {
+    text-align: center;
+}
+
+td.mat-cell {
+    text-align: center;
+}

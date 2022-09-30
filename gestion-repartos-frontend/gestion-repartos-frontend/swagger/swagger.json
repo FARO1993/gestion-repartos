@@ -1,0 +1,211 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/api/v1/createViaje": {
+            "post": {
+                "tags": [
+                    "viaje-controller"
+                ],
+                "operationId": "createViaje",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Viaje"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/v1/findAllViajes": {
+            "get": {
+                "tags": [
+                    "viaje-controller"
+                ],
+                "operationId": "findAllViajes",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/ViajeDTO"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Reparto": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "nombre": {
+                        "type": "string"
+                    },
+                    "responsableDeReparto": {
+                        "type": "string"
+                    },
+                    "efectivo": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "descuentos": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "notaDeCredito": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "cheques": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "mercadoPago": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "facturasFirmadas": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "transferencias": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "totalDeReparto": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "diferencia": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                }
+            },
+            "Viaje": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "dia": {
+                        "type": "string"
+                    },
+                    "reparto": {
+                        "$ref": "#/components/schemas/Reparto"
+                    },
+                    "ayudante": {
+                        "type": "string"
+                    },
+                    "fechaDeEntrega": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "zona": {
+                        "type": "string"
+                    },
+                    "totalDeViaje": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "gananciaFija": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "comision170": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "comision150": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "comision125": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "diferencia": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                }
+            },
+            "ViajeDTO": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "getdia": {
+                        "type": "string"
+                    },
+                    "ayudante": {
+                        "type": "string"
+                    },
+                    "fechaDeEntrega": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "zona": {
+                        "type": "string"
+                    },
+                    "totalDeViaje": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "diferencia": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "gananciaFija": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "comision170": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "comision150": {
+                        "type": "number",
+                        "format": "float"
+                    },
+                    "comision125": {
+                        "type": "number",
+                        "format": "float"
+                    }
+                }
+            }
+        }
+    }
+}

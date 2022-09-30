@@ -1,0 +1,71 @@
+<mat-sidenav-container style="background: none;" 
+                       fullscreen>
+    <mat-sidenav #sidenav 
+                 style="background: black;" 
+                 mode="push">
+
+        <mat-toolbar style="background: none;">
+            <span>Menú</span>
+            <button mat-mini-fab
+                    color="primary"
+                    (click)="sidenav.toggle()"
+                    style="margin-left: 15px;">
+                    <span class="material-icons">
+                        close
+                    </span>
+            </button>
+        </mat-toolbar>
+
+        <mat-nav-list>
+            <a routerLink="./bienvenida"
+               mat-list-item
+               (click)="sidenav.toggle()">
+               <mat-icon mat-list-icon
+                         color="primary">
+                         home
+                </mat-icon>
+                <span>Inicio</span>
+            </a>
+        </mat-nav-list>
+
+        <mat-nav-list>
+            <a routerLink="./bienvenida"
+               mat-list-item
+               (click)="sidenav.toggle()">
+               <mat-icon mat-list-icon
+                         color="primary">
+                         local_shipping
+                </mat-icon>
+                <span>Viajes</span>
+            </a>
+        </mat-nav-list>
+
+        <mat-nav-list>
+            <a routerLink="./bienvenida"
+               mat-list-item
+               (click)="sidenav.toggle()">
+               <mat-icon mat-list-icon
+                         color="primary">
+                         shopping_cart
+                </mat-icon>
+                <span>Repartos</span>
+            </a>
+        </mat-nav-list>
+
+    </mat-sidenav>
+    <mat-toolbar fxLayout="row" 
+                 fxLayoutAlign="space-between center">
+        <div fxLayout="row"
+             fxLayoutAlign="center center">
+            <button mat-mini-fab
+                color="primary" 
+                (click)="sidenav.toggle()">
+                <mat-icon>format_align_justify</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar>
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div> 
+</mat-sidenav-container>

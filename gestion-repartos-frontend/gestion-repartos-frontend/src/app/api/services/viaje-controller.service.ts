@@ -95,8 +95,8 @@ export class ViajeControllerService extends BaseService {
     }
 
     return this.http.request(rb.build({
-      responseType: "json",
-      accept: '*/*',
+      responseType: 'json',
+      accept: 'application/json',
       context: params?.context
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),

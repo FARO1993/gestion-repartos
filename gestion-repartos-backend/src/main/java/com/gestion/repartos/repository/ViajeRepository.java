@@ -11,7 +11,7 @@ import com.gestion.repartos.DTO.ViajeDTO;
 import com.gestion.repartos.model.Viaje;
 
 @Repository
-public interface ViajeRepository extends CrudRepository<Viaje, Long>{
+public interface ViajeRepository extends JpaRepository<Viaje, Long>{
 	
 	@Query("select distinct new com.gestion.repartos.DTO.ViajeDTO( " 
 		   +"v.id, "
@@ -20,12 +20,12 @@ public interface ViajeRepository extends CrudRepository<Viaje, Long>{
 		   +"v.fechaDeEntrega, "
 		   +"v.zona, "
 		   +"v.totalDeViaje, "
-		   +"v.diferencia,"
-		   +"v.gananciaFija,"
-		   +"v.comision170,"
-		   +"v.comision150,"
+		   +"v.gananciaFija, "
+		   +"v.comision170, "
+		   +"v.comision150, "
 		   +"v.comision125 "
 		   +") "
 		   +"from Viaje v ")
 	public List<ViajeDTO> findAllViajes();
+	
 }

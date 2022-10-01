@@ -14,4 +14,6 @@ public interface ViajeService {
 	public List<ViajeDTO> getViajesList();
 	
 	public void createViaje(Viaje viaje);
+	
+	public void updateViaje(ViajeDTO viaje);
 }

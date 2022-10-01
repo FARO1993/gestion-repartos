@@ -14,27 +14,49 @@ import { ViajeControllerService } from 'src/app/api/services';
 })
 
 export class ViajeComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['id', 'Día', 'Ayudante', 'Fecha de Entrega',"Zona","Total de Viaje", "Ganancia Fija",
-                                 'Comision 1.70%', 'Comision 1.50%', 'Comision 1.25%', 'Diferencia', 'Acciones'];
+  displayedColumns: string[] = ['id', 'Día', 'Ayudante', 'Fecha de Entrega',"Zona", "Ganancia Fija",
+                                 'Comision 1.70%', 'Comision 1.50%', 'Comision 1.25%', "Total de Viaje",  'Acciones'];
   dataSource = new MatTableDataSource<ViajeDto>([]);
+  loadingTableViajes: boolean;
 
   @ViewChild(MatPaginator) 'paginator': MatPaginator;
 
-  constructor(private viajeService: ViajeControllerService) {}
+  constructor(private viajeService: ViajeControllerService) {
+    this.loadingTableViajes = false;
+  }
 
   ngOnInit() {
     this.listar();
   }
 
+  //Paginator de la tabla.
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
 
+  //Lista de viajes.
   listar() {
+    this.loadingTableViajes = true;
     this.viajeService.findAllViajes().subscribe(r => {
       this.dataSource.data = r;
-      console.log(this.dataSource.data)
+      this.loadingTableViajes = false;
     })
+  }
+
+  onChangeCheckbox($event: any){
+    console.log($event)
+  }
+
+  edit() {
+    window.alert("Holis soy el edit")
+  }
+
+  view() {
+    window.alert("Holis soy el view")
+  }
+
+  delete() {
+    window.alert("Holis soy el delete")
   }
 }
 

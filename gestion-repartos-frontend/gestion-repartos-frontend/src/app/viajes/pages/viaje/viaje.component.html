@@ -1,107 +1,105 @@
-<section  fxLayout="column" fxLayoutAlign="center center">
-    <!-- Title -->
-    <div style="margin-top: 3%">
-        <h1>Listado de Viajes</h1>
-    </div>
+<section fxLayout="column" fxLayoutAlign="center center">
+  <!-- Title -->
+  <div style="margin-top: 3%">
+    <h1>Listado de Viajes</h1>
+  </div>
 
-      <mat-divider></mat-divider>
-    <!-- Inicio Table -->
-    <div style="margin-top: 3%; width: 80%;">
-        <table style="width: 100%;" mat-table [dataSource]="dataSource">
-      
-          <!-- Id Column -->
-          <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef>id</th>
-            <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-          </ng-container>
-      
-          <!-- Dia Column -->
-          <ng-container matColumnDef="Día">
-            <th mat-header-cell *matHeaderCellDef>Día</th>
-            <td mat-cell *matCellDef="let element">{{ element.dia }}</td>
-          </ng-container>
-      
-          <!-- Weight Column -->
-          <ng-container matColumnDef="Ayudante">
-            <th mat-header-cell *matHeaderCellDef>Ayudante</th>
-            <td mat-cell *matCellDef="let element">{{ element.ayudante }}</td>
-          </ng-container>
-      
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="Fecha de Entrega">
-            <th mat-header-cell *matHeaderCellDef>Fecha de Entrega</th>
-            <td mat-cell *matCellDef="let element">{{ element.fechaDeEntrega | date:'d/M/yy'}}</td>
-          </ng-container>
+  <mat-divider></mat-divider>
+  <!-- Inicio Table -->
+  <mat-spinner *ngIf="loadingTableViajes" color="primary"></mat-spinner>
+  <div *ngIf="!loadingTableViajes" style="margin-top: 3%; width: 80%;">
+    <table style="width: 100%;" mat-table [dataSource]="dataSource">
 
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="Zona">
-            <th mat-header-cell *matHeaderCellDef>Zona</th>
-            <td mat-cell *matCellDef="let element">{{ element.zona }}</td>
-          </ng-container>
+      <!-- Id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+          <mat-checkbox color="primary" value="{{ element.id }}" (change)="onChangeCheckbox($event)">
+          </mat-checkbox>
+        </td>
+      </ng-container>
 
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="Total de Viaje">
-            <th mat-header-cell *matHeaderCellDef>Total de Viaje</th>
-            <td mat-cell *matCellDef="let element">{{ element.totalDeViaje }}</td>
-          </ng-container>
+      <!-- Dia Column -->
+      <ng-container matColumnDef="Día">
+        <th mat-header-cell *matHeaderCellDef>Día</th>
+        <td mat-cell *matCellDef="let element">{{ element.dia | primerLetraMayuscula}}</td>
+      </ng-container>
 
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="Ganancia Fija">
-            <th mat-header-cell *matHeaderCellDef>Ganancia Fija</th>
-            <td mat-cell *matCellDef="let element">{{ element.gananciaFija }}</td>
-          </ng-container>
+      <!-- Weight Column -->
+      <ng-container matColumnDef="Ayudante">
+        <th mat-header-cell *matHeaderCellDef>Ayudante</th>
+        <td mat-cell *matCellDef="let element">{{ element.ayudante }}</td>
+      </ng-container>
 
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="Comision 1.70%">
-            <th mat-header-cell *matHeaderCellDef>Comision 1.70%</th>
-            <td mat-cell *matCellDef="let element">{{ element.comision170 }}</td>
-          </ng-container>
+      <!-- Fecha de Entrega Column -->
+      <ng-container matColumnDef="Fecha de Entrega">
+        <th mat-header-cell *matHeaderCellDef>Fecha de Entrega</th>
+        <td mat-cell *matCellDef="let element">{{ element.fechaDeEntrega | date:'d/M/yy'}}</td>
+      </ng-container>
 
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="Comision 1.50%">
-            <th mat-header-cell *matHeaderCellDef>Comision 1.50%</th>
-            <td mat-cell *matCellDef="let element">{{ element.comision150 }}</td>
-          </ng-container>
+      <!-- Zona Column -->
+      <ng-container matColumnDef="Zona">
+        <th mat-header-cell *matHeaderCellDef>Zona</th>
+        <td mat-cell *matCellDef="let element">{{ element.zona }}</td>
+      </ng-container>
 
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="Comision 1.25%">
-            <th mat-header-cell *matHeaderCellDef>Comision 1.25%</th>
-            <td mat-cell *matCellDef="let element">{{ element.comision125 }}</td>
-          </ng-container>
+      <!-- Ganancia fija Column -->
+      <ng-container matColumnDef="Ganancia Fija">
+        <th mat-header-cell *matHeaderCellDef>Ganancia Fija</th>
+        <td mat-cell *matCellDef="let element">{{ element.gananciaFija | number : '1.2-2' }}</td>
+      </ng-container>
 
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="Diferencia">
-            <th mat-header-cell *matHeaderCellDef>Diferencia</th>
-            <td mat-cell *matCellDef="let element">{{ element.diferencia }}</td>
-          </ng-container>
+      <!-- Comision 1,70 Column -->
+      <ng-container matColumnDef="Comision 1.70%">
+        <th mat-header-cell *matHeaderCellDef>Comision 1.70%</th>
+        <td mat-cell *matCellDef="let element">{{ element.comision170 | number : '1.2-2'}}</td>
+      </ng-container>
 
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="Acciones">
-            <th mat-header-cell *matHeaderCellDef>Acciones</th>
-            <td mat-cell *matCellDef="let element">
-              <mat-icon mat-list-icon
-                        color="primary">
-                        edit
-              </mat-icon>
-              <mat-icon mat-list-icon
-                        color="primary">
-                        visibility
-              </mat-icon>
-              <mat-icon mat-list-icon
-                        color="primary">
-                        delete
-              </mat-icon>
-            </td>
-          </ng-container>
-      
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-      
-        <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                       showFirstLastButtons 
-                       aria-label="Select page of periodic elements">
-        </mat-paginator>
-    </div> 
+      <!-- Comision 1,50 Column -->
+      <ng-container matColumnDef="Comision 1.50%">
+        <th mat-header-cell *matHeaderCellDef>Comision 1.50%</th>
+        <td mat-cell *matCellDef="let element">{{ element.comision150 | number : '1.2-2'}}</td>
+      </ng-container>
+
+      <!-- Comision 1,25 Column -->
+      <ng-container matColumnDef="Comision 1.25%">
+        <th mat-header-cell *matHeaderCellDef>Comision 1.25%</th>
+        <td mat-cell *matCellDef="let element">{{ element.comision125 | number : '1.2-2'}}</td>
+      </ng-container>
+
+      <!-- Total de Viaje Column -->
+      <ng-container matColumnDef="Total de Viaje">
+        <th mat-header-cell *matHeaderCellDef>Total de Viaje</th>
+        <td mat-cell *matCellDef="let element">{{ element.totalDeViaje | number : '1.2-2' }}</td>
+      </ng-container>
+
+      <!-- Acciones Column -->
+      <ng-container matColumnDef="Acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button color="primary" (click)="edit()">
+            <span class="material-icons">
+              edit
+            </span>
+          </button>
+          <button mat-icon-button color="primary" (click)="view()">
+            <span class="material-icons">
+              visibility
+            </span>
+          </button>
+          <button mat-icon-button color="primary" (click)="delete()">
+            <span class="material-icons">
+              delete
+            </span>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
 </section>
-

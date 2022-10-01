@@ -7,7 +7,6 @@ export interface Viaje {
   comision150?: number;
   comision170?: number;
   dia?: string;
-  diferencia?: number;
   fechaDeEntrega?: string;
   gananciaFija?: number;
   id?: number;

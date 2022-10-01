@@ -9,7 +9,7 @@ public class Viaje {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", nullable=false)
+	@Column(name = "id")
 	private Long id;
 	
 	@Column(name = "dia", nullable = false)
@@ -42,9 +42,6 @@ public class Viaje {
 	
 	@Column(name= "comision_1_25", nullable = false)
 	private Float comision125;
-	
-	@Column(name = "diferencia")
-	private Float diferencia;
 
 	public Float getGananciaFija() {
 		return gananciaFija;
@@ -133,14 +130,5 @@ public class Viaje {
 	public void setTotalDeViaje(Float totalDeViaje) {
 		this.totalDeViaje = totalDeViaje;
 	}
-
-	public Float getDiferencia() {
-		return diferencia;
-	}
-
-	public void setDiferencia(Float diferencia) {
-		this.diferencia = diferencia;
-	}
-
 	
 }

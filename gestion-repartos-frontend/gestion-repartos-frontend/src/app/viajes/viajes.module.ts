@@ -6,6 +6,7 @@ import { ViajesRoutingModule } from './viajes-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { ViajeComponent } from './pages/viaje/viaje.component';
 import { RepartoComponent } from './pages/reparto/reparto.component';
+import { PrimerLetraMayusculaPipe } from './pipes/primer-letra-mayuscula.pipe';
 
 
 
@@ -13,7 +14,8 @@ import { RepartoComponent } from './pages/reparto/reparto.component';
   declarations: [
     HomeComponent,
     ViajeComponent,
-    RepartoComponent
+    RepartoComponent,
+    PrimerLetraMayusculaPipe
   ],
   imports: [
     CommonModule,

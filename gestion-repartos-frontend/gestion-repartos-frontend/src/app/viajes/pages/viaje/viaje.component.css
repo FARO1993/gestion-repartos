@@ -16,6 +16,7 @@ mat-icon{
 
 th.mat-header-cell {
     text-align: center;
+    font-size: 20px;
 }
 
 td.mat-cell {

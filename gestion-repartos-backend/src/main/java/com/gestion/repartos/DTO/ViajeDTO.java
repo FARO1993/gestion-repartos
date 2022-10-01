@@ -16,7 +16,6 @@ public class ViajeDTO implements Serializable {
 	private Date fechaDeEntrega;
 	private String zona;
 	private Float totalDeViaje;
-	private Float diferencia;
 	private Float gananciaFija;
 	private Float comision170;
 	private Float comision150;
@@ -27,7 +26,7 @@ public class ViajeDTO implements Serializable {
 	}
 
 	public ViajeDTO(Long id, String dia, String ayudante, Date fechaDeEntrega, String zona,
-			Float totalDeViaje, Float diferencia, Float gananciaFija, Float comision170,
+			Float totalDeViaje, Float gananciaFija, Float comision170,
 			Float comision150, Float comision125) {
 		this.id = id;
 		this.dia = dia;
@@ -35,7 +34,6 @@ public class ViajeDTO implements Serializable {
 		this.fechaDeEntrega = fechaDeEntrega;
 		this.zona = zona;
 		this.totalDeViaje = totalDeViaje;
-		this.diferencia = diferencia;
 		this.gananciaFija = gananciaFija;
 		this.comision170 = comision170;
 		this.comision150 = comision150;
@@ -122,14 +120,4 @@ public class ViajeDTO implements Serializable {
 		this.totalDeViaje = totalDeViaje;
 	}
 
-	public Float getDiferencia() {
-		return diferencia;
-	}
-
-	public void setDiferencia(Float diferencia) {
-		this.diferencia = diferencia;
-	}
-	
-	
-	
 }

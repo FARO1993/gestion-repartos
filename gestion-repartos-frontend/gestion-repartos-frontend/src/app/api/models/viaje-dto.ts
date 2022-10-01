@@ -5,10 +5,9 @@ export interface ViajeDto {
   comision125?: number;
   comision150?: number;
   comision170?: number;
-  diferencia?: number;
+  dia?: string;
   fechaDeEntrega?: string;
   gananciaFija?: number;
-  dia?: string;
   id?: number;
   totalDeViaje?: number;
   zona?: string;

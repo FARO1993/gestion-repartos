@@ -16,4 +16,8 @@ public interface ViajeService {
 	public void createViaje(Viaje viaje);
 	
 	public void updateViaje(ViajeDTO viaje);
+	
+	public void deleteViaje(Long id);
+	
+	public Viaje findViajeById(Long id);
 }

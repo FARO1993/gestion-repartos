@@ -48,6 +48,17 @@ public class ViajeServiceImpl implements ViajeService {
 		}
 		
 	}
+
+	@Override
+	public void deleteViaje(Long id) {
+		viajeRepository.deleteById(id);
+	}
+
+	@Transactional
+	@Override
+	public Viaje findViajeById(Long id) {		
+		return viajeRepository.findViajeById(id);
+	}
 	
 
 }

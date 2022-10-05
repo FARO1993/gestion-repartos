@@ -42,6 +42,25 @@ public class Viaje {
 	
 	@Column(name= "comision_1_25", nullable = false)
 	private Float comision125;
+	
+	public Viaje() {
+		
+	}
+
+	public Viaje(Long id, String dia, Reparto reparto, String ayudante, Date fechaDeEntrega, String zona,
+			Float totalDeViaje, Float gananciaFija, Float comision170, Float comision150, Float comision125) {
+		this.id = id;
+		this.dia = dia;
+		this.reparto = reparto;
+		this.ayudante = ayudante;
+		this.fechaDeEntrega = fechaDeEntrega;
+		this.zona = zona;
+		this.totalDeViaje = totalDeViaje;
+		this.gananciaFija = gananciaFija;
+		this.comision170 = comision170;
+		this.comision150 = comision150;
+		this.comision125 = comision125;
+	}
 
 	public Float getGananciaFija() {
 		return gananciaFija;

@@ -1,0 +1,19 @@
+<h1>¿Está seguro que desea eliminar el viaje?</h1>
+<hr>
+<br>
+<p>
+    Está a punto de eliminar el viaje con fecha: <br><b>{{ data.dia }} {{ data.fechaDeEntrega | date:'d/M/yy' }}</b>
+    <br>
+    <br>
+    ¿Desea continuar?
+</p>
+<br>
+<div>
+    <button style="margin-right: 10px;" mat-raised-button color="warn" (click)="borrar()">
+        Si, borrar.
+    </button>
+    <button mat-raised-button color="primary" (click)="closeDialog()">
+        Cancelar
+    </button>
+
+</div>

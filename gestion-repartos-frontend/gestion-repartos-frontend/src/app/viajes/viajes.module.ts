@@ -7,7 +7,8 @@ import { MaterialModule } from '../material/material.module';
 import { ViajeComponent } from './pages/viaje/viaje.component';
 import { RepartoComponent } from './pages/reparto/reparto.component';
 import { PrimerLetraMayusculaPipe } from './pipes/primer-letra-mayuscula.pipe';
-
+import { DeleteConfirmComponent } from './components/delete-confirm/delete-confirm.component';
+import { SnackbarComponent } from './components/snackbar/snackbar.component';
 
 
 @NgModule({
@@ -15,7 +16,9 @@ import { PrimerLetraMayusculaPipe } from './pipes/primer-letra-mayuscula.pipe';
     HomeComponent,
     ViajeComponent,
     RepartoComponent,
-    PrimerLetraMayusculaPipe
+    PrimerLetraMayusculaPipe,
+    DeleteConfirmComponent,
+    SnackbarComponent
   ],
   imports: [
     CommonModule,

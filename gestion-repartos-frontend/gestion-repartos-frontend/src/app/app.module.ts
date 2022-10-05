@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
-import { HomeComponent } from './viajes/pages/home/home.component';
 
 //Cambiar el locale de la app.
 import localeEs from '@angular/common/locales/es-AR';

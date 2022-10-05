@@ -24,6 +24,57 @@ export class ViajeControllerService extends BaseService {
   }
 
   /**
+   * Path part for operation editViaje
+   */
+  static readonly EditViajePath = '/api/v1/editViaje';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `editViaje()` instead.
+   *
+   * This method sends `application/json` and handles request body of type `application/json`.
+   */
+  editViaje$Response(params: {
+    context?: HttpContext
+    body: ViajeDto
+  }
+): Observable<StrictHttpResponse<void>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ViajeControllerService.EditViajePath, 'put');
+    if (params) {
+      rb.body(params.body, 'application/json');
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: '*/*',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `editViaje$Response()` instead.
+   *
+   * This method sends `application/json` and handles request body of type `application/json`.
+   */
+  editViaje(params: {
+    context?: HttpContext
+    body: ViajeDto
+  }
+): Observable<void> {
+
+    return this.editViaje$Response(params).pipe(
+      map((r: StrictHttpResponse<void>) => r.body as void)
+    );
+  }
+
+  /**
    * Path part for operation createViaje
    */
   static readonly CreateViajePath = '/api/v1/createViaje';
@@ -75,6 +126,57 @@ export class ViajeControllerService extends BaseService {
   }
 
   /**
+   * Path part for operation findViajeById
+   */
+  static readonly FindViajeByIdPath = '/api/v1/findViajeById';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `findViajeById()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  findViajeById$Response(params: {
+    id: number;
+    context?: HttpContext
+  }
+): Observable<StrictHttpResponse<Viaje>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ViajeControllerService.FindViajeByIdPath, 'get');
+    if (params) {
+      rb.query('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Viaje>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `findViajeById$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  findViajeById(params: {
+    id: number;
+    context?: HttpContext
+  }
+): Observable<Viaje> {
+
+    return this.findViajeById$Response(params).pipe(
+      map((r: StrictHttpResponse<Viaje>) => r.body as Viaje)
+    );
+  }
+
+  /**
    * Path part for operation findAllViajes
    */
   static readonly FindAllViajesPath = '/api/v1/findAllViajes';
@@ -119,6 +221,57 @@ export class ViajeControllerService extends BaseService {
 
     return this.findAllViajes$Response(params).pipe(
       map((r: StrictHttpResponse<Array<ViajeDto>>) => r.body as Array<ViajeDto>)
+    );
+  }
+
+  /**
+   * Path part for operation deleteVieja
+   */
+  static readonly DeleteViejaPath = '/api/v1/deleteVieja';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `deleteVieja()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  deleteVieja$Response(params: {
+    id: number;
+    context?: HttpContext
+  }
+): Observable<StrictHttpResponse<void>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ViajeControllerService.DeleteViejaPath, 'delete');
+    if (params) {
+      rb.query('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: '*/*',
+      context: params?.context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access to only to the response body.
+   * To access the full response (for headers, for example), `deleteVieja$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  deleteVieja(params: {
+    id: number;
+    context?: HttpContext
+  }
+): Observable<void> {
+
+    return this.deleteVieja$Response(params).pipe(
+      map((r: StrictHttpResponse<void>) => r.body as void)
     );
   }
 

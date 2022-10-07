@@ -58,20 +58,22 @@ export class ViajeComponent implements AfterViewInit, OnInit {
     console.log($event)
   }
 
-  edit() {
-    window.alert("Holis soy el edit")
+  //Direccion edit.
+  edit(id: number) {
+    this.router.navigate([`viajes/viaje/edit/${id}`]);
   }
 
-  view() {
-    window.alert("Holis soy el view")
+  //Direccion view.
+  view(id: number) {
+    this.router.navigate([`viajes/viaje/view/${id}`]);
   }
 
   //Mat dialog para eliminar elemento.
   delete(element: Viaje, i:any) {
     const id = element.id as number;
     const dialog = this.dialog.open( DeleteConfirmComponent, {
-      width: 'auto',
-      data: element
+      width: '400px',
+      data: element,
     });
 
     dialog.afterClosed().subscribe(r => {
@@ -86,9 +88,14 @@ export class ViajeComponent implements AfterViewInit, OnInit {
             error: err => {
               this.snack.openSnackBar("ERROR no se pudo eliminar el viaje.","","Error");
             } 
-        });
+        })
       }
     });
+  }
+
+  //Direccion create.
+  routingCreate(){
+    this.router.navigate(['viajes/viaje/create']);
   }
 
 }

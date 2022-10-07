@@ -1,0 +1,108 @@
+<section style="width: 100%" fxLayout="column" fxLayoutAlign="center center">
+        <div style="margin-top: 3%">
+            <h1 class="title">{{ mode == 'create' ? 'Crear Viaje' :
+                mode == 'edit' ? 'Editar Viaje' :
+                mode == 'view' ? 'Ver Viaje' : null}}
+            </h1>
+        </div>
+        <mat-divider></mat-divider>
+
+        <form style="margin-top: 3%;" autocomplete="off" [formGroup]="miFormularioViaje">
+            <!-- Campo Día del Viaje -->
+            <div *ngIf="this.miFormularioViaje.get('fechaDeViaje')?.value != ''">
+                <mat-form-field appearance="fill">
+                    <mat-label>Día</mat-label>
+                    <input formControlName="dia" matInput type="text" value="Aca va la fecha">
+                </mat-form-field>
+            </div>
+
+            <!-- Campo Seleccionar Fecha -->
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Seleccione una Fecha</mat-label>
+                    <input formControlName="fechaDeViaje" (dateChange)="dateChange($event)" matInput
+                        [matDatepicker]="picker">
+                    <mat-hint>DD/MM/YYYY</mat-hint>
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <!-- Campo Ayudante -->
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Ingrese nombre de Ayudante</mat-label>
+                    <input formControlName="ayudante" matInput type="text">
+                </mat-form-field>
+            </div>
+
+            <!-- Campo Zona -->
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Ingrese nombre de Zona</mat-label>
+                    <input formControlName="zona" matInput type="text">
+                </mat-form-field>
+            </div>
+
+            <!-- Campo Ganancia Fija -->
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Ganancia Fija</mat-label>
+                    <input formControlName="gananciaFija" matInput type="number">
+                </mat-form-field>
+            </div>
+
+            <!-- Campo Comision 1,70 -->
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Comision 1,70%</mat-label>
+                    <input formControlName="comision170" matInput type="number">
+                </mat-form-field>
+            </div>
+
+            <!-- Campo Comision 1,50 -->
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Comision 1,50%</mat-label>
+                    <input formControlName="comision150" matInput type="number">
+                </mat-form-field>
+            </div>
+
+            <!-- Campo Comision 1,25 -->
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Comision 1,25%</mat-label>
+                    <input formControlName="comision125" matInput type="number">
+                </mat-form-field>
+            </div>
+
+            <!-- Campo Total de Viaje -->
+            <div>
+                <mat-form-field appearance="fill">
+                    <mat-label>Total de Viaje</mat-label>
+                    <input formControlName="totalViaje" matInput type="number">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <button mat-raised-button (click)="guardar()">
+                    Guardar
+                </button>
+            </div>
+        </form>
+
+        <div style="margin-top: 5%;">
+            <span>Valid</span>
+            <pre>{{ miFormularioViaje.valid }}</pre>
+
+            <span>Pristine</span>
+            <pre>{{ miFormularioViaje.pristine }}</pre>
+
+            <span>Touched</span>
+            <pre>{{ miFormularioViaje.touched }}</pre>
+
+            <span>Value</span>
+            <pre>{{ miFormularioViaje.value | json }}</pre>
+        </div>
+
+</section>

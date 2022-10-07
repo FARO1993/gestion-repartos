@@ -1,28 +1,61 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+    background-color: #0d1117;
+}
 
-.success-snackbar{
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.success-snackbar {
     background: #59a65b;
     color: white;
     font-size: 15px;
 }
 
-.warn-snackbar{
+.warn-snackbar {
     background: orange;
     color: white;
     font-size: 15px;
 }
 
-.error-snackbar{
+.error-snackbar {
     background: red;
     color: white;
     font-size: 15px;
 }
 
-.info-snackbar{
+.info-snackbar {
     background: cornflowerblue;
     color: white;
     font-size: 15px;
+}
+
+.title {
+    color: white;
+    font-weight: bold !important;
+    font-size: 50px !important;
+    font-weight: 100 !important;
+}
+
+mat-divider {
+    border-top-color: white !important;
+    width: 80% !important;
+    margin: 10px !important;
+}
+
+mat-dialog-container{
+    background-color: #161b22 !important;
+}
+
+.mat-datepicker-content .mat-calendar {
+    background:  #161b22;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background:  #161b22;
 }

@@ -1,10 +1,10 @@
 <mat-sidenav-container style="background: none;" 
                        fullscreen>
     <mat-sidenav #sidenav 
-                 style="background: black;" 
+                 style="background:#161b22" 
                  mode="push">
 
-        <mat-toolbar style="background: none;">
+        <mat-toolbar style="background:#161b22">
             <span>Menú</span>
             <button mat-mini-fab
                     color="primary"
@@ -29,7 +29,7 @@
         </mat-nav-list>
 
         <mat-nav-list>
-            <a routerLink="./bienvenida"
+            <a routerLink="./viaje"
                mat-list-item
                (click)="sidenav.toggle()">
                <mat-icon mat-list-icon
@@ -53,7 +53,8 @@
         </mat-nav-list>
 
     </mat-sidenav>
-    <mat-toolbar fxLayout="row" 
+    <mat-toolbar style="background: #161b22;"
+                 fxLayout="row" 
                  fxLayoutAlign="space-between center">
         <div fxLayout="row"
              fxLayoutAlign="center center">

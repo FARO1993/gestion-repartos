@@ -2,7 +2,7 @@
 <hr>
 <br>
 <p>
-    Está a punto de eliminar el viaje con fecha: <br><b>{{ data.dia }} {{ data.fechaDeEntrega | date:'d/M/yy' }}</b>
+    Está a punto de eliminar el viaje con fecha: <br><b>{{ data.dia! | primerLetraMayuscula }} {{ data.fechaDeEntrega | date:'d/M/yy' }}</b>
     <br>
     <br>
     ¿Desea continuar?

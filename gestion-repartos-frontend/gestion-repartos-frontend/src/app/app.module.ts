@@ -25,7 +25,7 @@ registerLocaleData( localeEs );
     HttpClientModule
   ],
   providers: [
-    { provide: LOCALE_ID, useValue: 'es-AR'}
+    { provide: LOCALE_ID, useValue: 'es-AR'},
   ],
   bootstrap: [AppComponent]
 })

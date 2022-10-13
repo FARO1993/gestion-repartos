@@ -7,7 +7,7 @@
   <!-- Loading -->
   <mat-spinner *ngIf="loadingTableViajes" color="primary"></mat-spinner>
   <!-- Empieza la Tabla -->
-  <article style="width: 80%;">
+  <article *ngIf="!loadingTableViajes" style="width: 80%;">
     <!-- Boton Crear Viaje -->
     <div div fxLayout="column" fxLayoutAlign="center start">
       <button class="create-button" mat-raised-button (click)="routingCreate()" color="primary">
@@ -17,7 +17,7 @@
         Crear Viaje
       </button>
     </div>
-    <table *ngIf="!loadingTableViajes" style="width: 100%;" mat-table [dataSource]="dataSource">
+    <table style="width: 100%;" mat-table [dataSource]="dataSource">
       <!-- Id Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef></th>

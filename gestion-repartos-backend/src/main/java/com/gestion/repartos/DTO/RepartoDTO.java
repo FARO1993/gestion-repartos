@@ -21,6 +21,7 @@ public class RepartoDTO implements Serializable {
 	private Float transferencias;
 	private Float totalDeReparto;
 	private Float diferencia;
+	private Float totalEntregado;
 
 	public RepartoDTO() {
 
@@ -28,7 +29,7 @@ public class RepartoDTO implements Serializable {
 
 	public RepartoDTO(Long id, String nombre, String responsableDeReparto, Float efectivo, Float descuentos,
 			Float notaDeCredito, Float cheques, Float mercadoPago, Float facturasFirmadas, Float transferencias,
-			Float totalDeReparto, Float diferencia) {
+			Float totalDeReparto, Float diferencia, Float totalEntregado) {
 		this.id = id;
 		this.nombre = nombre;
 		this.responsableDeReparto = responsableDeReparto;
@@ -41,6 +42,15 @@ public class RepartoDTO implements Serializable {
 		this.transferencias = transferencias;
 		this.totalDeReparto = totalDeReparto;
 		this.diferencia = diferencia;
+		this.totalEntregado = totalEntregado;
+	}
+
+	public Float getTotalEntregado() {
+		return totalEntregado;
+	}
+
+	public void setTotalEntregado(Float totalEntregado) {
+		this.totalEntregado = totalEntregado;
 	}
 
 	public Long getId() {

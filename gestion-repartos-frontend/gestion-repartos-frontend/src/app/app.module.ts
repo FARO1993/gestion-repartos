@@ -10,12 +10,14 @@ import { MaterialModule } from './material/material.module';
 //Cambiar el locale de la app.
 import localeEs from '@angular/common/locales/es-AR';
 import { registerLocaleData } from '@angular/common';
+import { ConfirmDialogComponent } from './shared/services/confirm-dialog/confirm-dialog.component';
 registerLocaleData( localeEs );
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,

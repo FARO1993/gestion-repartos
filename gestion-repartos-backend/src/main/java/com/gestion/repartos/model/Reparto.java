@@ -43,6 +43,17 @@ public class Reparto {
 	
 	@Column(name = "diferencia")
 	private Float diferencia;
+	
+	@Column(name = "total_entregado")
+	private Float totalEntregado;
+
+	public Float getTotalEntregado() {
+		return totalEntregado;
+	}
+
+	public void setTotalEntregado(Float totalEntregado) {
+		this.totalEntregado = totalEntregado;
+	}
 
 	public Long getId() {
 		return id;

@@ -12,5 +12,6 @@ export interface Reparto {
   notaDeCredito?: number;
   responsableDeReparto?: string;
   totalDeReparto?: number;
+  totalEntregado?: number;
   transferencias?: number;
 }

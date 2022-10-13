@@ -11,6 +11,10 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.div-container{
+    width: 80%;
+}
+
 .success-snackbar {
     background: #59a65b;
     color: white;
@@ -58,4 +62,22 @@ mat-dialog-container{
 
 .mat-form-field-appearance-fill .mat-form-field-flex {
     background:  #161b22;
+    width: 250px;
+}
+
+.mat-card{
+    background:  #0d1117;
+    border: 1px solid;
+}
+
+.mat-card:hover{
+    border-color: #7b1fa2;
+}
+
+.hidden{
+    display: none;
+}
+
+.reparto-message-info-success{
+    color: #59a65b;
 }

@@ -39,7 +39,7 @@ public class ViajeController {
 	}
 	
 	//Creo un nuevo viaje.
-	@PostMapping(path = "createViaje", consumes = {MediaType.APPLICATION_JSON_VALUE})
+	@RequestMapping(value = "createViaje", method = RequestMethod.POST, consumes="application/json")
 	public void createViaje(@RequestBody Viaje viaje) {
 		try {
 			viajeService.createViaje(viaje);

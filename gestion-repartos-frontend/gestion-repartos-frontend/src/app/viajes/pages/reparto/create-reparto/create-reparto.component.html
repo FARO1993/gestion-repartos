@@ -1,0 +1,146 @@
+<div>
+    <mat-card>
+        <mat-card-title style="text-align:center">Crear Reparto</mat-card-title>
+        <mat-card-subtitle>Recuerde completar todos los campos con su correspondiente valor.</mat-card-subtitle>
+        <mat-card-content>
+            <!-- Comienza el Formulario -->
+            <div>
+                <form autocomplete="off" [formGroup]="miFormularioReparto">
+                    <!-- Total de Reparto -->
+                    <div>
+                        <div>
+                            <span error-msg [valido]="!tieneError('totalDeReparto')">Este campo es requerido.</span>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Total de Reparto</mat-label>
+                            <input formControlName="totalDeReparto" matInput type="number">
+                        </mat-form-field>
+                    </div>
+                    <!-- Campo Responsable de Reparto -->
+                    <div>
+                        <div>
+                            <span error-msg [valido]="!tieneError('responsableDeReparto')">Este campo es
+                                requerido.</span>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Responsable de Reparto</mat-label>
+                            <input formControlName="responsableDeReparto" matInput type="text"
+                                value="Aca va el responsable de reparto">
+                        </mat-form-field>
+
+                    </div>
+                    <!-- Campo Nombre de Reparto -->
+                    <div>
+                        <div>
+                            <span error-msg [valido]="!tieneError('nombre')">Este campo es requerido.</span>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Nombre de Reparto</mat-label>
+                            <input formControlName="nombre" matInput type="text" value="Aca va el nombre de reparto">
+                        </mat-form-field>
+
+                    </div>
+                    <!-- Campo Efectivo -->
+                    <div>
+                        <div>
+                            <span error-msg [valido]="!tieneError('efectivo')">Este campo es requerido.</span>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Efectivo</mat-label>
+                            <input formControlName="efectivo" matInput type="number">
+                        </mat-form-field>
+
+                    </div>
+                    <!-- Campo Descuento -->
+                    <div>
+                        <div>
+                            <span error-msg [valido]="!tieneError('descuento')">Este campo es requerido.</span>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Descuentos</mat-label>
+                            <input formControlName="descuento" matInput type=number>
+                        </mat-form-field>
+
+                    </div>
+                    <!-- Campo Nota de Credito -->
+                    <div>
+                        <div>
+                            <span error-msg [valido]="!tieneError('notaDeCredito')">Este campo es requerido.</span>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Nota de Crédito</mat-label>
+                            <input formControlName="notaDeCredito" matInput type="number">
+                        </mat-form-field>
+
+                    </div>
+                    <!-- Campo cheques -->
+                    <div>
+                        <div>
+                            <span error-msg [valido]="!tieneError('cheque')">Este campo es requerido.</span>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Cheques</mat-label>
+                            <input formControlName="cheque" matInput type="number">
+                        </mat-form-field>
+
+                    </div>
+                    <!-- Campo Mercado Pago -->
+                    <div>
+                        <div>
+                            <span error-msg [valido]="!tieneError('mercadoPago')">Este campo es requerido.</span>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Mercado Pago</mat-label>
+                            <input formControlName="mercadoPago" matInput type="number">
+                        </mat-form-field>
+
+                    </div>
+                    <!-- Campo Facturas Firmadas -->
+                    <div>
+                        <div>
+                            <span error-msg [valido]="!tieneError('facturasFirmadas')">Este campo es requerido.</span>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Facturas Firmadas</mat-label>
+                            <input formControlName="facturasFirmadas" matInput type="number">
+                        </mat-form-field>
+
+                    </div>
+                    <!-- Transferencias -->
+                    <div>
+                        <div>
+                            <span error-msg [valido]="!tieneError('transferencias')">Este campo es requerido.</span>
+                        </div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Transferencias</mat-label>
+                            <input formControlName="transferencias" matInput type="number">
+                        </mat-form-field>
+                    </div>
+                    <mat-card-actions fxLayout="row" fxLayoutAlign="start center">
+                        <button [disabled]="!miFormularioReparto.valid" mat-button color="primary"
+                            (click)="calcularTotalDeReparto(miFormularioReparto)">Calcular</button>
+                    </mat-card-actions>
+                    <!-- Total Entregado -->
+                    <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Total Entregado</mat-label>
+                            <input formControlName="totalEntregado" matInput type="number">
+                        </mat-form-field>
+                    </div>
+                    <!-- Diferencia -->
+                    <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Diferencia</mat-label>
+                            <input formControlName="diferencia" matInput type="number">
+                        </mat-form-field>
+                    </div>
+                </form>
+            </div>
+        </mat-card-content>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="center center">
+            <button [disabled]="!miFormularioReparto.valid" mat-stroked-button color="primary"
+                (click)="crear(miFormularioReparto)">Crear</button>
+            <button mat-stroked-button color="warn" (click)="cancel()">Cancelar</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
